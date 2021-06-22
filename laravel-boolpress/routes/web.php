@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/blog', 'PostController@index')->name('blog');
 
 // route protette da autenticazione
 Route::prefix('admin')
@@ -26,6 +27,7 @@ Route::prefix('admin')
     ->middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('posts', 'PostController');
 });
 
 
