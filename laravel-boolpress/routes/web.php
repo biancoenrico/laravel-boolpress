@@ -19,6 +19,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/blog', 'PostController@index')->name('blog');
+Route::get('/blog/{slug}', 'PostController@show')->name('blog-page');
 
 // route protette da autenticazione
 Route::prefix('admin')
