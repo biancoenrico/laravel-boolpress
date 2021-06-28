@@ -9,7 +9,6 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{ $item['title'] }}</h5>
-                            <p class="card-text">{{ $item['content'] }}</p>
 
                             <div>
                                 <a href="{{ route('admin.posts.show', ['post' => $item->slug]) }}" class="btn btn-primary">Vai al post</a>
