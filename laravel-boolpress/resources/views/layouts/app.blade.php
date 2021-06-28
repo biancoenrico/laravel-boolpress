@@ -36,7 +36,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog') }}">blog</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('categories') }}">categorie</a>
+                        </li>
                     </ul>
+
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
