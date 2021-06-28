@@ -12,7 +12,7 @@
                             <p class="card-text">{{ $item['content'] }}</p>
 
                             <div>
-                                <a href="{{ route('blog-page',['slug'=> $item->slug]) }}" class="btn btn-primary">Go somewhere</a>
+                                <a href="{{ route('admin.posts.show', ['post' => $item->slug]) }}" class="btn btn-primary">Vai al post</a>
                                 <a href="{{ route('admin.posts.edit',['post'=> $item['id']]) }}" class="btn btn-success">modifica post</a>
                             </div>
 

@@ -2,9 +2,13 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+            @if ($post->category)
+                <div class="mt-2 mb-2">
+                categoria: {{ $post->category['name'] }}
+                </div>
+            @endif
             <h1>{{ $post->title }}</h1>
+
             <p>{{ $post->content }}</p>
-        </div>
     </div>
 @endsection

@@ -15,6 +15,20 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <h1>
+                        ciao {{ $currentUser->name }}
+                    </h1>
+                    <ul>
+                        @if ($currentInfo)
+                            <li>
+                                numero di telefono: {{ $currentInfo['telephone number'] }}
+                            </li>
+                            <li>
+                                indirizzo: {{ $currentInfo['address'] }}
+                            </li> 
+                        @endif
+                        
+                    </ul>
                 </div>
             </div>
         </div>

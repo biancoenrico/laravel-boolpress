@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -32,7 +33,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        $data = [
+            'categories'=> $categories
+        ];
+        return view('admin.posts.create',$data);
     }
 
     /**
@@ -45,7 +50,8 @@ class PostController extends Controller
     {
         $request->validate([
             'title'=>'required|max:255',
-            'content'=>'required|max:65000'
+            'content'=>'required|max:65000',
+            'category_id'=>'nullable|exists:categories,id'
         ]);
 
         //richiesta dati form
@@ -80,21 +86,20 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
         // mostro i dati del singolo post in pagina
-        $post = Post::where('slug', '=', $slug)->first();
-
+        $post = Post::where('slug', '=', $id)->first();
         // errore se il post non esiste
         if(!$post){
             abort('404');
         }
 
         $data = [
-            'post' => $post
+            'post' => $post,
         ];
-
-        return view('guest.posts.show', $data);
+        
+        return view('admin.posts.show', $data);
     }
 
     /**
@@ -104,11 +109,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        
         $post = Post::findOrFail($id);
+        $categories = Category::all();
 
         $data = [
-            'post' => $post
+            'post' => $post,
+            'categories'=> $categories
         ];
 
         return view('admin.posts.edit',$data);
@@ -125,7 +133,8 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'content' => 'required|max:65000'
+            'content' => 'required|max:65000',
+            'category_id'=>'nullable|exists:categories,id'
         ]);
 
         $modified_post_data = $request->all();
