@@ -8,7 +8,7 @@
             <ul class="list-group">
                 @foreach ($tag->posts as $item)
                 <li class="list-group-item">
-                    <a href="{{ route('admin.posts.show', ['post' => $item->slug]) }}">{{ $item->title }}</a>
+                    <a href="{{ route('blog-page', ['slug' => $item->slug]) }}">{{ $item->title }}</a>
                 </li>
                 @endforeach
             </ul>

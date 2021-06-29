@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('categories') }}">categorie</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('tags') }}">tags</a>
+                        </li>
                     </ul>
 
                     

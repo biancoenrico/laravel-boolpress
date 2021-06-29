@@ -20,7 +20,7 @@
                     tag: 
                 </strong>
                 @foreach ( $post_tags as $item )
-                    {{ $item->name }}, 
+                    <a href="">{{ $item->name }},</a>
                 @endforeach
             </div>
 
