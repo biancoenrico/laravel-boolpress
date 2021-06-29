@@ -14,6 +14,16 @@
                     <strong>categoria:</strong> {{ $post->category->name }}
                 </div>
             @endif
+            
+            <div>
+                <strong>
+                    tag: 
+                </strong>
+                @foreach ( $post_tags as $item )
+                    {{ $item->name }}, 
+                @endforeach
+            </div>
+
             <p>{{ $post->content }}</p>
     </div>
 @endsection

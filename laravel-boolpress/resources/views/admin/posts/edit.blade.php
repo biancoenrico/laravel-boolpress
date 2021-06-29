@@ -40,6 +40,18 @@
                 </select>
             </div>
 
+            <div class="form-group mt-3 ">
+            <h4>tags:</h4>
+                @foreach ($tags as $tag)
+                    <div class="form-check mt-3 mr-3 d-inline">
+                        <input class="form-check-input " name="tags[]" type="checkbox" value="{{ $tag->id }}" id="tag-{{ $tag->id }}" >
+                        <label class="form-check-label" for="tag-{{ $tag->id }}">
+                            {{ $tag->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+
             <input type="submit" class="btn btn-success" value="Salva le modifiche">
         </form>
     </div>
