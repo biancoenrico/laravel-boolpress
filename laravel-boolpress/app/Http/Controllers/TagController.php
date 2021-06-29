@@ -7,10 +7,11 @@ use App\Tag;
 
 class TagController extends Controller
 {
-    public function show($slug) {
+    public function show($slug)
+    {
         $tag = Tag::where('slug', '=', $slug)->first();
 
-        if(!$tag) {
+        if (!$tag) {
             abort('404');
         }
 
@@ -18,5 +19,6 @@ class TagController extends Controller
             'tag' => $tag
         ];
 
-        return view('guest.tags.show', $data);
+        return view('guest.tags.show',['tags' => $tag->slug], $data);
     }
+}
